@@ -1,0 +1,21 @@
+{
+  "name": "QuizGenius - Tạo Câu Hỏi Trắc Nghiệm AI",
+  "short_name": "QuizGenius",
+  "description": "Tạo câu hỏi trắc nghiệm thông minh với AI",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#fafbfc",
+  "theme_color": "#6366f1",
+  "icons": [
+    {
+      "src": "favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>",
+      "sizes": "192x192",
+      "type": "image/svg+xml"
+    }
+  ]
+}

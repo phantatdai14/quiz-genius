@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="QuizGenius - Tạo câu hỏi trắc nghiệm thông minh với AI. Sử dụng Google Gemini AI để tự động tạo câu hỏi chất lượng cao cho bất kỳ chủ đề nào. Hỗ trợ đa ngôn ngữ, xuất nhiều định dạng.">
+  <meta name="keywords"
+    content="tạo câu hỏi, trắc nghiệm, AI, Gemini, quiz generator, multiple choice, giáo dục, học tập">
+  <meta name="author" content="QuizGenius">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://quizgenius.com/">
+  <meta property="og:title" content="QuizGenius - Tạo Câu Hỏi Trắc Nghiệm AI">
+  <meta property="og:description"
+    content="Tạo câu hỏi trắc nghiệm thông minh với AI. Sử dụng Google Gemini AI để tự động tạo câu hỏi chất lượng cao.">
+  <meta property="og:image" content="favicon.svg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://quizgenius.com/">
+  <meta property="twitter:title" content="QuizGenius - Tạo Câu Hỏi Trắc Nghiệm AI">
+  <meta property="twitter:description"
+    content="Tạo câu hỏi trắc nghiệm thông minh với AI. Sử dụng Google Gemini AI để tự động tạo câu hỏi chất lượng cao.">
+  <meta property="twitter:image" content="favicon.svg">
+
+  <title>QuizGenius - Tạo Câu Hỏi Trắc Nghiệm AI</title>
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="alternate icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>">
+  <link rel="apple-touch-icon" href="favicon.svg">
+  <link rel="manifest" href="manifest.json">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="styles.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <i class="fas fa-brain"></i>
+        <span data-key="brandName">QuizGenius</span>
+      </div>
+      <div class="nav-controls">
+        <button id="themeToggle" class="nav-btn" title="Chuyển đổi sáng/tối">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button id="languageToggle" class="nav-btn" title="Chuyển đổi ngôn ngữ">
+          <i class="fas fa-globe"></i>
+          <span id="currentLang">VI</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero">
+
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-sparkles"></i>
+          <span data-key="heroBadge">Được hỗ trợ bởi Gemini AI</span>
+        </div>
+
+        <h1 class="hero-title">
+          <span data-key="heroTitle1">Tạo câu hỏi trắc nghiệm</span><br>
+          <span class="gradient-text" data-key="heroTitle2">thông minh với AI</span>
+        </h1>
+
+        <p class="hero-description" data-key="heroDescription">
+          Tự động tạo câu hỏi trắc nghiệm chất lượng cao cho bất kỳ chủ đề nào.
+          Tiết kiệm thời gian, nâng cao chất lượng giảng dạy và học tập.
+        </p>
+
+        <div class="hero-cta">
+          <button id="getStartedBtn" class="btn btn-primary btn-large">
+            <i class="fas fa-rocket"></i>
+            <span data-key="getStarted">Bắt đầu ngay</span>
+          </button>
+          <button id="learnMoreBtn" class="btn btn-secondary-outline btn-large">
+            <i class="fas fa-play"></i>
+            <span data-key="learnMore">Tìm hiểu thêm</span>
+          </button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-number">10K+</div>
+            <div class="stat-label" data-key="questionsGenerated">Câu hỏi đã tạo</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">500+</div>
+            <div class="stat-label" data-key="happyUsers">Người dùng hài lòng</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">50+</div>
+            <div class="stat-label" data-key="subjects">Chủ đề hỗ trợ</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-image">
+          <div class="floating-card card-1">
+            <i class="fas fa-question-circle"></i>
+            <div class="card-content">
+              <h4 data-key="sampleQuestion">Câu hỏi mẫu</h4>
+              <p data-key="sampleQuestionText">Thủ đô của Pháp là gì?</p>
+            </div>
+          </div>
+
+          <div class="floating-card card-2">
+            <i class="fas fa-check-circle"></i>
+            <div class="card-content">
+              <h4 data-key="smartAnswer">Đáp án thông minh</h4>
+              <p data-key="smartAnswerText">AI tự động tạo giải thích</p>
+            </div>
+          </div>
+
+          <!-- <div class="floating-card card-3">
+            <i class="fas fa-download"></i>
+            <div class="card-content">
+              <h4 data-key="multiFormat">Đa định dạng</h4>
+              <p data-key="multiFormatText">JSON, HTML, CSV, TXT</p>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="features">
+    <div class="container">
+      <div class="section-header">
+        <h2 data-key="featuresTitle">Tính năng nổi bật</h2>
+        <p data-key="featuresSubtitle">Khám phá những tính năng mạnh mẽ giúp bạn tạo câu hỏi một cách dễ dàng</p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h3 data-key="aiPowered">Trí tuệ nhân tạo</h3>
+          <p data-key="aiPoweredDesc">Sử dụng Google Gemini AI để tạo câu hỏi chất lượng cao và phù hợp</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-language"></i>
+          </div>
+          <h3 data-key="multiLanguage">Đa ngôn ngữ</h3>
+          <p data-key="multiLanguageDesc">Hỗ trợ tiếng Việt và tiếng Anh, dễ dàng chuyển đổi</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-sliders-h"></i>
+          </div>
+          <h3 data-key="customizable">Tùy chỉnh linh hoạt</h3>
+          <p data-key="customizableDesc">Điều chỉnh số lượng câu hỏi, độ khó và chủ đề theo nhu cầu</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-file-export"></i>
+          </div>
+          <h3 data-key="exportFormats">Xuất đa định dạng</h3>
+          <p data-key="exportFormatsDesc">Tải xuống dưới dạng JSON, HTML, CSV hoặc TXT</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-moon"></i>
+          </div>
+          <h3 data-key="darkMode">Chế độ tối</h3>
+          <p data-key="darkModeDesc">Giao diện thân thiện với mắt, làm việc thoải mái cả ngày lẫn đêm</p>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <i class="fas fa-mobile-alt"></i>
+          </div>
+          <h3 data-key="responsive">Responsive</h3>
+          <p data-key="responsiveDesc">Hoạt động mượt mà trên mọi thiết bị và màn hình</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Generator Section -->
+  <section class="generator" id="generator">
+    <div class="container">
+      <div class="generator-header">
+        <h2 data-key="generatorTitle">Tạo câu hỏi ngay bây giờ</h2>
+        <p data-key="generatorSubtitle">Nhập thông tin và để AI tạo ra những câu hỏi chất lượng cao cho bạn</p>
+      </div>
+
+      <div class="generator-content">
+        <!-- Configuration Form -->
+        <div class="config-form">
+          <h3><i class="fas fa-cogs"></i> <span data-key="configuration">Cấu hình</span></h3>
+
+          <div class="form-content">
+            <div class="form-group">
+              <label for="apiKey">
+                <i class="fas fa-key"></i> <span data-key="apiKeyLabel">Khóa API Gemini</span>
+              </label>
+              <input type="password" id="apiKey" data-key="apiKeyPlaceholder"
+                placeholder="Nhập khóa API Gemini của bạn">
+              <small><span data-key="getKeyAt">Lấy khóa tại</span> <a href="https://makersuite.google.com/"
+                  target="_blank">makersuite.google.com</a></small>
+            </div>
+
+            <div class="form-group">
+              <label for="topic">
+                <i class="fas fa-book"></i> <span data-key="topicLabel">Chủ đề</span>
+              </label>
+              <input type="text" id="topic" data-key="topicPlaceholder"
+                placeholder="VD: Lập trình Python, Lịch sử Thế giới...">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="numQuestions">
+                  <i class="fas fa-list-ol"></i> <span data-key="numQuestionsLabel">Số câu hỏi</span>: <span
+                    id="numQuestionsValue">5</span>
+                </label>
+                <input type="range" id="numQuestions" min="1" max="10" value="5">
+              </div>
+
+              <div class="form-group">
+                <label for="difficulty">
+                  <i class="fas fa-chart-line"></i> <span data-key="difficultyLabel">Độ khó</span>
+                </label>
+                <select id="difficulty">
+                  <option value="dễ" data-key="easy">Dễ</option>
+                  <option value="trung bình" selected data-key="medium">Trung bình</option>
+                  <option value="khó" data-key="hard">Khó</option>
+                </select>
+              </div>
+            </div>
+
+            <button id="generateBtn" class="btn btn-primary btn-full">
+              <i class="fas fa-magic"></i> <span data-key="generateBtn">Tạo câu hỏi</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Results Area -->
+        <div class="results-area">
+          <h3><i class="fas fa-clipboard-list"></i> <span data-key="resultsTitle">Kết quả</span></h3>
+
+          <!-- Loading indicator -->
+          <div id="loading" class="loading hidden">
+            <div class="loading-animation">
+              <div class="spinner"></div>
+              <div class="loading-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            <p data-key="loading">Đang tạo câu hỏi...</p>
+          </div>
+
+          <!-- Alert messages -->
+          <div id="alertContainer"></div>
+
+          <!-- Questions container -->
+          <div id="questionsContainer" class="hidden">
+            <div class="questions-header">
+              <h3><i class="fas fa-list"></i> <span data-key="generatedQuestions">Câu hỏi đã tạo</span></h3>
+              <button id="regenerateBtn" class="btn btn-secondary">
+                <i class="fas fa-redo"></i> <span data-key="regenerateBtn">Tạo lại</span>
+              </button>
+            </div>
+
+            <div id="questionsList"></div>
+
+            <!-- Score section -->
+            <div id="scoreSection" class="score-section">
+              <button id="calculateScore" class="btn btn-success">
+                <i class="fas fa-calculator"></i> <span data-key="calculateScore">Tính điểm</span>
+              </button>
+              <div id="scoreResult" class="hidden"></div>
+            </div>
+
+            <!-- Download section -->
+            <div class="download-section">
+              <h4><i class="fas fa-download"></i> <span data-key="downloadTitle">Tải xuống</span></h4>
+              <div class="download-grid">
+                <button id="downloadJson" class="download-btn json">
+                  <i class="fas fa-file-code"></i>
+                  <span data-key="downloadJson">JSON</span>
+                </button>
+                <button id="downloadHtml" class="download-btn html">
+                  <i class="fas fa-globe"></i>
+                  <span data-key="downloadHtml">HTML</span>
+                </button>
+                <button id="downloadTxt" class="download-btn txt">
+                  <i class="fas fa-file-alt"></i>
+                  <span data-key="downloadTxt">TXT</span>
+                </button>
+                <button id="downloadCsv" class="download-btn csv">
+                  <i class="fas fa-table"></i>
+                  <span data-key="downloadCsv">CSV</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <i class="fas fa-brain"></i>
+            <span data-key="brandName">QuizGenius</span>
+          </div>
+          <p data-key="footerDescription">Tạo câu hỏi trắc nghiệm thông minh với sức mạnh của AI</p>
+        </div>
+
+        <div class="footer-links">
+          <div class="footer-section">
+            <h4 data-key="product">Sản phẩm</h4>
+            <ul>
+              <li><a href="#generator" data-key="generator">Tạo câu hỏi</a></li>
+              <li><a href="#features" data-key="features">Tính năng</a></li>
+            </ul>
+          </div>
+
+          <div class="footer-section">
+            <h4 data-key="support">Hỗ trợ</h4>
+            <ul>
+              <li><a href="#" data-key="documentation">Tài liệu</a></li>
+              <li><a href="#" data-key="contact">Liên hệ</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2025 QuizGenius. <span data-key="allRightsReserved">Tất cả quyền được bảo lưu.</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
